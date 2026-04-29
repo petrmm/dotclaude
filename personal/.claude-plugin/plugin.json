@@ -4,5 +4,7 @@
   "description": "Personal Claude Code configuration — skills, rules, and hooks",
   "author": {
     "name": "petrmm"
-  }
+  },
+  "hooks": "./hooks.json",
+  "mcpServers": "./mcp.json"
 }
