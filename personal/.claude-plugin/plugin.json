@@ -1,0 +1,8 @@
+{
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "Personal Claude Code configuration — skills, rules, and hooks",
+  "author": {
+    "name": "petrmm"
+  }
+}

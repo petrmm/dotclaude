@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "name": "personal",
+      "source": "./personal",
+      "description": "Personal skills, rules, and preferences"
+    }
+  ],
+  "owner": {
+    "name": "petrmm"
+  }
+}
