@@ -36,8 +36,8 @@ Use **commit messages only** (no diff) as the basis for all generated content.
 ## Step 4 — Ask for branch name
 
 Derive a suggested branch name from the commits:
-- Format: `{type}/{JIRA-ID}-{short-slug}` — all lowercase, dash-separated words
-- Example: `feat/MAK-123-oauth2-login-flow`
+- Format: `{type}-{JIRA-ID}-{short-slug}` — all lowercase, dash-separated words, no slashes
+- Example: `feat-MAK-123-oauth2-login-flow`
 - Use the current branch name as the suggestion if it already follows this convention
 
 Ask the user to confirm or change the branch name using AskUserQuestion.
