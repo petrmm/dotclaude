@@ -1,12 +1,14 @@
 {
+  "name": "dotclaude",
+  "version": "1.0.0",
+  "owner": {
+    "name": "petrmm"
+  },
   "plugins": [
     {
       "name": "personal",
       "source": "./personal",
       "description": "Personal skills, rules, and preferences"
     }
-  ],
-  "owner": {
-    "name": "petrmm"
-  }
+  ]
 }
