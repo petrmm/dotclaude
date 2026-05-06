@@ -35,9 +35,10 @@ Call `mcp__plugin_make-general_atlassian__getJiraIssue` for the ticket. From the
 - `summary`
 - `description` — look for `As a … I want … so that …` (user story) and `Given … when … then …` (acceptance criteria)
 - `status`
-- `fixVersions` (and their release dates)
 - `components`, `labels`
 - Any custom fields that look like documentation links
+
+Do **not** use `fixVersions` — Make doesn't use that Jira feature, so it won't be reliable.
 
 ### If source is a GitHub PR
 
@@ -98,7 +99,7 @@ Pre-fill from gathered context when you can:
 |---|---|
 | User benefits | The `so that <outcome>` clause of the Jira user story; PR description bullets |
 | BEFORE / AFTER | A `Before:` / `After:` block in the PR description; otherwise `[FILL IN]` |
-| Date of release | Jira `fixVersions[].releaseDate`; PR `mergedAt`; otherwise `[FILL IN]` |
+| Date of release | **Always confirm with the user via `AskUserQuestion`.** Suggest the PR `mergedAt` date as the default option (since that's usually when the feature ships), but never use it without confirmation — release date and merge date are not the same thing for staged rollouts, beta/full splits, or features held behind a flag. |
 | Type of release | Inferred from chosen channel (alphas → "beta on we.make.com"; releases → "full release on make.com"); user can override |
 | Audience/Plans | Jira labels / components if they encode plan info; otherwise `[FILL IN]` |
 | Documentation link | Jira "documentation link" field if present; otherwise `[FILL IN]` |
