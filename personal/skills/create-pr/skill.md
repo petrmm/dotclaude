@@ -72,24 +72,44 @@ Examples:
 
 ## Step 7 — Generate PR description
 
-Write a single paragraph (2–4 sentences) that:
-- Describes the problem or motivation
-- Explains how it was solved
+Use this three-section markdown format. Base everything on commit messages — do not read the file diff.
 
-Base it entirely on the commit messages — do not read the file diff.
-
-Append the Jira URL on its own line after the paragraph:
 ```
+## What
+- <bullet: concrete change 1>
+- <bullet: concrete change 2>
+...
+
+## Why
+<1–2 sentences: the problem or motivation that prompted this PR>
+
+## Test plan
+- [ ] <manual or automated test step 1>
+- [ ] <manual or automated test step 2>
+...
+
 https://make.atlassian.net/browse/{JIRA-ID}
 ```
-If no ticket was found, use:
-```
-https://make.atlassian.net/browse/TODO
-```
+
+Rules:
+- **What**: 1–4 bullets, each a concrete change (code, behaviour, or config). Start with a verb. No motivation here.
+- **Why**: 1–2 sentences explaining the root cause or business reason. No implementation details here.
+- **Test plan**: 1–4 checklist items a reviewer can run to verify the change. Derive from what the commits touch.
+- Append the Jira URL after the last section, on its own line.
+- If no ticket was found, use `https://make.atlassian.net/browse/TODO`.
 
 Full description example:
 ```
-Users were being silently logged out after token refresh failed due to a missing null-check on the session object. This PR adds a guard clause that falls back to re-authentication instead of dropping the session. The fix is covered by a new integration test for the token refresh path.
+## What
+- Added null-check guard on session object during token refresh
+- New integration test for the token refresh path
+
+## Why
+Users were silently logged out when token refresh failed due to a missing null-check. The fix falls back to re-authentication instead of dropping the session.
+
+## Test plan
+- [ ] Log in, let token expire, verify re-authentication prompt appears
+- [ ] Verify existing logout flows still work
 
 https://make.atlassian.net/browse/MAK-456
 ```
